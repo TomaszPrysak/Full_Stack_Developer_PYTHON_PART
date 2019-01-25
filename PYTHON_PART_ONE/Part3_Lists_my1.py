@@ -33,3 +33,6 @@ print(lista3)
 lista5 = [3,5,11,7,9,2]
 lista5.sort() # sortowanie listy, w zależności od rodzaju danych, python przyjmuje różne posoby sortowania
 print(lista5)
+
+print(lista5.index(11)) # zwróci indkes pod którym w liście wystepuje element który podaliśmy w argumencie metody .index(x), w tym przypadku musimy pamiętać, że lista jest posortowana
+print(lista4.count("x")) # zwróci liczę wystąpień w liście elementu, który podaliśmy w argumencie metody .count(x), pamiętajmy, że w tym pyrzpadku jest to lista, która jest sumą inny i powielona 3 razy

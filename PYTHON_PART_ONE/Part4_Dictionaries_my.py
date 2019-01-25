@@ -4,7 +4,8 @@
 # Słowniki są to zbiory pary klucz/wartość. Jednak pierwotne zdefiniowanie słownika z
 # parami klucz/wartość nie określa jednocześnie takiej kolejności. Wszystko co umieszczamy w słowniku
 # nie ma określonego położenia w nim. Jeżeli byśmy iterowali przez słownik to pary klucz/wartość
-# będą w losowej kolejności.
+# będą w losowej kolejności. Słowniki są nieuporządkowanym zbiorem elementów. Do konkretnych wartości
+# odowłujemy się za pomocą klucza
 
 # Słowniki w Pythonie posiadają wbudowane metody do inkrementowania, dekrementowania, mnożenia oraz dzielenia
 # wartości przypisanej do klucza. Odbuwa się to tak samo jako te same operacje jakiekolwiek zmiennej.

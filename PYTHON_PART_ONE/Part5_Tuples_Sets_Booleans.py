@@ -75,7 +75,7 @@ t.append('nope')
 # You may be wondering, "Why bother using tuples when they have fewer available
 # methods?" To be honest, tuples are not used as often as lists in programming,
 # but are used when immutability is necessary. If in your program you are passing
-#  around an object and need to make sure it does not get changed, then tuple
+# around an object and need to make sure it does not get changed, then tuple
 # become your solution. It provides a convenient source of data integrity.
 #
 # You should now be able to create and use tuples in your programming as well as
