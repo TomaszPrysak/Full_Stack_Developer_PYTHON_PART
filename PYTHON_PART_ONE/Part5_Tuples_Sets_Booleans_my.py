@@ -3,7 +3,7 @@
 
 # Krotki
 
-# Zbiory są kolekcją uporządkowanych elementów.
+# Krotki są kolekcją uporządkowanych elementów.
 # Krotki są podobne do list jednak są kolekcją elementów których nie można zmieniać.
 # Jeżeli raz zdefiniujemy krotkę to później nie możemy zmieniać jej elementów oraz dodawać nowych !
 # Pomimo tego, że do elementów odwołujemy, tak jak w listach, za pomocą indeksów to jednak nie możemy ich zmieniać.
