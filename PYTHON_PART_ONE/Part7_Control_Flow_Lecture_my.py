@@ -17,7 +17,7 @@ print("tak" == "nie")
 # zaposanej w konstrukcji pętli przypisywane są klucze elementów słownika.
 # Należy pamiętać, że słowniki są zbiorem elementów nieuporządkowanych, dlatego podczas
 # iterowania przez słownik nigdy elementy nie będą zwracane w jakiejś kolejności.
-# Jeżeli tak będzie to jest to tylko przypadek. W kolejnym przypadku już tak nie będzie.
+# Jeżeli tak będzie to jest to tylko przypadek. W kolejnej iteracji będzie już inaczej.
 
 dict = {"romek":1,"atomek":2}
 for key in dict:
@@ -25,8 +25,7 @@ for key in dict:
     print(dict[key])
 
 # W Pythonie, w trakcie iterowania pętlą FOR przez elementy kolekcji, której poszczególne elementy są również kolekcjami,
-# mamy możliwość rozpoakowywania elementów tej wewnętrznej kolekcji do pojedynczych zmiennych zapisanych
-# w konstrukcji pętli.
+# mamy możliwość rozpoakowywania elementów tej wewnętrznej kolekcji do pojedynczych zmiennych zapisanych w konstrukcji pętli.
 
 lista = [[1,2],[3,4],[5,6]]
 for listaItem1, listaItem2 in lista:
@@ -37,3 +36,12 @@ lista2 = [("a","b"),("c","d")]
 for lista2Item1, lista2Item2 in lista2:
     print(lista2Item1)
     print(lista2Item2)
+
+# Dodatkowe metody
+
+range(arg1, arg2, arg3) # metoda ta słuzy do generowania list złożonych z liczb całkowitych
+# arg1 - pierwsza liczba listy,
+# arg2 - granica listy, liczba która nie wchodzi w skład lity, ostatnia liczba która wchodzi jest o jeden mniejsza od arg2
+# arg3 - opcjonalny argument, oznacza krok pomiędzy nastepującymi sobie elementami listy stworzonej przez range()
+#        jeżeli nic nie podamy, wówczas krokiem bedzie 1, a wiec kolejne liczby listy będa większe od poprzedniej o jeden,
+#        jeżeli podamy 5 wówczas kolejne liczby będą się różniły o pięć, i tak dalej
