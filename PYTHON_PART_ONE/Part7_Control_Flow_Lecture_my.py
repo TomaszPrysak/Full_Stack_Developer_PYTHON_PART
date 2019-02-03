@@ -37,11 +37,43 @@ for lista2Item1, lista2Item2 in lista2:
     print(lista2Item1)
     print(lista2Item2)
 
-# Dodatkowe metody
+# Pętla WHILE
 
-range(arg1, arg2, arg3) # metoda ta słuzy do generowania list złożonych z liczb całkowitych
+# Wykonywana jest ona dopóty, dopóki spełniony jest warunek postawiony w konstrukcji pętli
+
+i = 1
+while i < 5:
+    print("i: {i}".format(i=i))
+    i *= 2
+
+# Funkcja range()
+
+# range(arg1, arg2, arg3) # metoda ta słuzy do generowania list złożonych z liczb całkowitych
 # arg1 - pierwsza liczba listy,
 # arg2 - granica listy, liczba która nie wchodzi w skład lity, ostatnia liczba która wchodzi jest o jeden mniejsza od arg2
 # arg3 - opcjonalny argument, oznacza krok pomiędzy nastepującymi sobie elementami listy stworzonej przez range()
 #        jeżeli nic nie podamy, wówczas krokiem bedzie 1, a wiec kolejne liczby listy będa większe od poprzedniej o jeden,
 #        jeżeli podamy 5 wówczas kolejne liczby będą się różniły o pięć, i tak dalej
+
+# range() wykorzystujemy do generowania list służących jako "iteratory" do pętli FOR.
+# Pozwoli to zaoszczędzić pamięć w momencie jezeli mamy do przeiterowania przez listę która zaweira
+# dużą ilosć elementów różnego typu. Wówczas tworzymy sobie za pomocą range() listę do iterowania prez naszą właściwą listę.
+# Wówczas range() konstryujemy od 0 do liczby będącej długością listy pierwotnej.
+
+dziwnaLista = [1,"kapibara",44,"ułahili",2,"jupikajej",555]
+
+for item in range(0, len(dziwnaLista)):
+    print(dziwnaLista[item])
+
+# nie musimy cały czas trzymać listy dziwnaLista w pamięci podczas iterowania.
+
+# List Comprehension
+
+# Omawialiśmy już ten sposób w rozdziale: Part3_Lists_my2
+# Teraz tylko przerobimy przykład.
+
+x = [1,2,3,4]
+
+y = [itemX**2 for itemX in x]
+
+print(y)

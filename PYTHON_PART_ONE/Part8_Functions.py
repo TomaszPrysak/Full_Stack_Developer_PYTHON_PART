@@ -50,7 +50,7 @@ def my_func(param1='default'):
 # other programing languages do not do this, so keep that in mind.
 #
 # Next you'll see the doc-string, this is where you write a basic description of
-# the function. Using iPython and iPython Notebooks, you'll be ab;e to read these
+# the function. Using iPython and iPython Notebooks, you'll be able to read these
 # doc-strings by pressing Shift+Tab after a function name. Doc strings are not
 # necessary for simple functions, but its good practice to put them in so you or
 # other people can easily understand the code you write.

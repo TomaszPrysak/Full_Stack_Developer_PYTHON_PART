@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Słowniki są to zbiory pary klucz/wartość. Jednak pierwotne zdefiniowanie słownika z
+# Słowniki są to zbiór par klucz/wartość. Jednak pierwotne zdefiniowanie słownika z
 # parami klucz/wartość nie określa jednocześnie takiej kolejności. Wszystko co umieszczamy w słowniku
 # nie ma określonego położenia w nim. Jeżeli byśmy iterowali przez słownik to pary klucz/wartość
 # będą w losowej kolejności. Słowniki są nieuporządkowanym zbiorem elementów. Do konkretnych wartości
