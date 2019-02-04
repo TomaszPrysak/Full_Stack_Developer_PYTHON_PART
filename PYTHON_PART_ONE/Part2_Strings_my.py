@@ -9,6 +9,7 @@ print(my_string1[-1]) # wyświetlenie ostatniego indeksu
 print(my_string1[:-1]) # wyświetlenie wszystkiego oprocz osatatniego indeksu
 print(my_string1[::2]) # wyświetlanie co drugiego znaku pośród wszystkich znaków, 2 oznacza skok miedzy znakami
 print(my_string1[::-1]) # sposob iterowania od konca
+print(my_string1[-2:]) # wyświetlenie znaków o indeksie o dwa mniejsze od ostatnigo znaku do końca
 
 # sposob umieszczania stringow w stringu
 my_string2 = "Tutaj wstawimy {x}, a tutaj {y}".format(x="nic",y="cos")

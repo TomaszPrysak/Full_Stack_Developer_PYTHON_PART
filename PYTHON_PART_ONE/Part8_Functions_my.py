@@ -101,3 +101,28 @@ print(result3)
 # result3 = map(checkReszte, mojaLista)
 
 # Przykładowe wbudowane funkcje różnych obiektów:
+
+string = 'hello'
+print(string.lower()) # lower() zamienia wszystkie znaki w tekście na małe litery
+print(string.upper()) # upper() zamienia wszystkie znaki w tekście na wielkie litery
+print(string.split()) # split() dzieli tekst z wykorzystaniem okreslonego znaku, w naszym przypadku nie podaliśmy żdnego znaku podziału, dlatego znakiem podziału jest spacja,
+#                       i po podzieleniu umieszcza poszczególne części tekstu w liście. W tym przypadku nie było spacji więc cały tekst umieszczono w liście. I teraz zawiera jeden element.
+
+tweet = "Go Sports! #Sports"
+print(tweet.split()) # split() dzieli tekst z wykorzystaniem spacji i umieszcza cześci tekstu w liście w kolejności w jakiej występowały w tekście
+#                      pierszym elementem listy będzie "Go", drugim "Sports!", a trzecim: "#Sports"
+print(tweet.split("#")) # spit("#") dzielimy tekst wykorzystując znak podziału: "#". Pierwszym elementem listy będzie: "Go Sports! ", a drugim: "Sports",
+#                         warto zauważyc, że znak podziału nie jest brany do żadnego elementu listy, po prostu przepada.
+print(tweet.split("#")[1]) # po podziale tesktu z wykorzystaniem split("#") zwracamy drugi element listy
+
+d = {'k1':1,'k2':2}
+print(d.keys()) # keys() zwraca listę wszystkich kluczy w słowniku
+print(d.items()) # items() zwraca listę dwuelementowych krotek, gdzie pierwszym elementem krotki jest klucz, a drugim wartośc do tego klucza przypisana
+
+lst = [1,2,3]
+x = lst.pop() # pop() zwraca ostatni element z listy i jednocześnie usuwa go z listy.
+print(x)
+print(lst)
+
+print("x" in [1,2,3]) # sprawdzamy czy tekst "x" jet w kolekcji elementów, zwracana jest wartość prawda fałsz.
+print("x" in ["x","y","z"]) # sprawdzamy czy tekst "x" jet w kolekcji elementów, zwracana jest wartość prawda fałsz.
