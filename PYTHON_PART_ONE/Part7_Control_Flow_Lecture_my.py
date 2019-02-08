@@ -46,6 +46,30 @@ while i < 5:
     print("i: {i}".format(i=i))
     i *= 2
 
+# Słówko kluczowe "break"
+
+# Umieszczenie słówka "break" w pętli spowoduje natychmiastowe przerwanie pętli i wyjście z niej bez
+# wykonania kodu który znajduje się za tym słówkiem kluczowym.
+
+lst = [1,2,3,4,5,6]
+
+for item in lst:
+	if item < 4:
+		print("Jestem jeszcze w pętli")
+	else:
+		print("upppssss, przed nami break")
+		break
+
+# Słówko kluczowe "continue"
+
+# Umieszcenie słówka "continue" w pętli spowoduje przeskoczenie do kolejnej iteracji pętli.
+
+lst2 = ["1",2,"3",4,"5",6]
+
+for item in lst2:
+	if type(item) == type("test"): continue
+	print(item)
+
 # Funkcja range()
 
 # range(arg1, arg2, arg3) # metoda ta słuzy do generowania list złożonych z liczb całkowitych

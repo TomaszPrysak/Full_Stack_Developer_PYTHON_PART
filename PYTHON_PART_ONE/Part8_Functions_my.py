@@ -53,6 +53,15 @@ def addNum(num1, num2):
 
 print(addNum(2,2))
 
+# Słówko kluczowe "return"
+#
+# Powyżej zostało opisane do czego służy to słówko.
+# Jednak najważniejszym jego zadaniem jest to, że powoduje momentalne
+# opuszczenie funkcji. Nawet jeżeli poniżej jest jeszcze kod funkcji.
+# Dlatego "return" używamy czesto w połączeniu z wyrażeniami warunkowymi.
+# Albo po prostu na samym końcu jak coś zostanie przeliczone.
+# To w celu uzupełnienia informacji o "return"
+
 # Wyrażenie LAMBDA
 
 # W niektórych przypadkach nie ma sensu używać dużej funkcji.

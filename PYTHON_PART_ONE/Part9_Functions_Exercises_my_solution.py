@@ -18,7 +18,7 @@
 # w liście przekazywanej jako argument funkcji będzie znajdować się sekwencja liczb 1,2,3.
 # Sekwencja ta musi znajdować się gdziekolwiek w liści, ale muszą one
 
-# For example:
+# Przykłady:
 
 # arrayCheck([1, 1, 2, 3, 1]) → True
 # arrayCheck([1, 1, 2, 4, 1]) → False
@@ -40,7 +40,7 @@ print(arrayCheck(list1))
 # Stwórz funkcję która będzie zwracać ciąg znaków składający się z co drugiego znaku
 # z ciagu znaków przekazywanego do funkcji jako argument.
 
-# For example:
+# Przykłady:
 
 # stringBits('Hello') → 'Hlo'
 # stringBits('Hi') → 'H'
@@ -64,13 +64,13 @@ print(stringBits(string))
 # I na odwórt. Pierwotne zadanie brzmiało, żeby funkcja ta zwracała True jeżeli jeden z ciągów znaków
 # bedzie znajdował się na samym końcu drugiego i na odwrót. Zrobiłem dwa przykłady.
 
-# Examples:
+# Przykłady:
 
 # end_other('Hiabc', 'abc') → True
 # end_other('AbC', 'HiaBc') → True
 # end_other('abc', 'abXabc') → True
 
-
+# Funkcja do sprawdania czy jeden ze stringów znajduje się w drugim i na odwrót
 def end_other1(a, b):
 	a = a.lower()
 	b = b.lower()
@@ -81,9 +81,13 @@ def end_other1(a, b):
 	else:
 		return False
 
+# Funkcja do sprawdzania czy jeden ze stringów znajduje się na końcu drugiego i na odwrót
 def end_other2(a, b):
 	a = a.lower()
 	b = b.lower()
+	# return b.endswith(a) or a.endswith(b) sposób na rozwiązanie zadania z wykorzystaniem specjalnej metody endswith()
+	#                                       zwraca ona TRUE jeżeli na końcu ciągu znaków na ktorym została wywołana
+	#                                       znajduje się wyszczególniona wartość, czyli inny string.
 	return a[-len(b):] == b or b[-len(a):] == a
 
 firstString = "Hiabc"
@@ -95,17 +99,23 @@ print(end_other2(firstString, secondString))
 ## -- PROBLEM 4 -- ##
 #####################
 
-# Given a string, return a string where for every char in the original,
-# there are two chars.
+# Stwórz funkcję która będzie zwracać ciąg znaków w którym każdy znak jest podwojony w stosunku
+# do oryginalnego ciągu znaków.
+
+# Przykłady:
 
 # doubleChar('The') → 'TThhee'
 # doubleChar('AAbb') → 'AAAAbbbb'
 # doubleChar('Hi-There') → 'HHii--TThheerree'
 
 def doubleChar(str):
-	pass
+	result = ""
+	for i in str:
+		result += i*2
+	return result
 
-
+string2 = "Hi-There"
+print(doubleChar(string2))
 
 #####################
 ## -- PROBLEM 5 -- ##
@@ -113,37 +123,50 @@ def doubleChar(str):
 
 # Read this problem statement carefully!
 
-# Given 3 int values, a b c, return their sum. However, if any of the values is a
-# teen -- in the range 13-19 inclusive -- then that value counts as 0, except 15
-# and 16 do not count as a teens. Write a separate helper "def fix_teen(n):"that
-# takes in an int value and returns that value fixed for the teen rule.
-#
-# In this way, you avoid repeating the teen code 3 times (i.e. "decomposition").
-# Define the helper below and at the same indent level as the main no_teen_sum().
-# Again, you will have two functions for this problem!
-#
-# Examples:
-#
+# Mając 3 wartości będące liczbami całkowitymi, należy stworzyć funkcję która zwóci ich sumę.
+# Jednakże, jeśli jedna z tych wartości jest z przedziału 13 - 19 to wówczas przyjmujemy, że jej wartość wynosi 0.
+
+# Jednak należy stworzyć osobną funkcję do sprawdzania czy liczba jest z przedziału 13 - 19 .
+# Dodatkowo, jeżeli jest z tego przedziału i jest to 15 lub 16 to niech jej wartość pozostanie taka sama.
+# Niech nie przyjmuje wówczas wartości 0.
+
+# Przykład:
+
 # no_teen_sum(1, 2, 3) → 6
 # no_teen_sum(2, 13, 1) → 3
 # no_teen_sum(2, 1, 14) → 3
 
-def no_teen_sum(a, b, c):
-	pass
+def no_teen_sum(lst):
+	a = lst[0]
+	b = lst[1]
+	c = lst[2]
+	return fix_teen(a) + fix_teen(b) + fix_teen(c)
 def fix_teen(n):
-	pass
+	if n in [13,14,17,18,19]:
+		return 0
+	return n
+
+list3 = [2, 13, 1]
+print(no_teen_sum(list3))
 
 #####################
 ## -- PROBLEM 6 -- ##
 #####################
 
-# Return the number of even integers in the given array.
+# Stwórz funkcję zwracającą ilość parzystych liczb w liście jako argumencie funkcji
 #
-# Examples:
+# Przykłady:
 #
 # count_evens([2, 1, 2, 3, 4]) → 3
 # count_evens([2, 2, 0]) → 3
 # count_evens([1, 3, 5]) → 0
 
-def count_evens(nums):
-	pass
+def count_evens(lst):
+	counter = 0
+	for i in lst:
+		if i % 2 == 0:
+			counter += 1
+	return counter
+
+list3 = [2, 2, 0]
+print(count_evens(list3))
