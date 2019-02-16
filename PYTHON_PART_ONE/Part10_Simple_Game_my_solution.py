@@ -37,7 +37,7 @@ computerNumbers = list(range(1,10))
 random.shuffle(computerNumbers)
 computerNumbers = computerNumbers[:3]
 odpowiedzi = []
-# print(computerNumbers)
+print(computerNumbers)
 
 print("Przez komputer zostaly wylosowane 3 liczby")
 
