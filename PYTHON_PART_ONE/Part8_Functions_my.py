@@ -68,7 +68,7 @@ print(addNum(2,2))
 # LAMBDA to funkcja jednolinijkowa, nie posiadająca nazwy, ponieważ wywołujemy ją w jednym konkretnym miejscu,
 # w którym chcemy dokonać jakiś operacji. Jeżeli chcielibyśmy podobnych operacji dokonać w innym miejscu wówczas musimy
 # jeszcze raz użyć LAMBDY.
-# Często wyrażenie LAMBDA wykożystujemy po to aby dokonać operacj na każdym elemencie jakiejś kolekcji.
+# Często wyrażenie LAMBDA wykorzystujemy po to aby dokonać operacj na każdym elemencie jakiejś kolekcji.
 # Wówczas wyrażenie to stosujemy z innymi metodami.
 
 # Metody z którymi stosujemy wyrażenie LAMBDA:
