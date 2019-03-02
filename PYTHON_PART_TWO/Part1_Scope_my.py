@@ -160,4 +160,4 @@ print('Zmienna x2 poza funkcja ma nowa wartosc = {x}'.format(x=x2)) # wyświetle
 # Przykład:
 print("#####")
 print(len(name)) # słówko len oznacza nazwę wbudowanej metody Pythona do zwracania długości kolekcji elementów (lista, string, słownik)
-#				   NIE MOŻNA stosować własnych nazw (zmiennych) nazwami modułów Pythona.
+#				   NIE MOŻNA stosować nazw zmiennych nazwami modułów Pythona.
