@@ -1,18 +1,30 @@
 #!/urs/bin/python
 # -*- coding: utf-8 -*-
 
+from collections import OrderedDict
+
 # Dict Comprehension
-# wyrażenia jednolinijkowe do operacji z listami
+# wyrażenia jednolinijkowe do operacji ze słownikami
+# Tutaj jedyną różnicą jest rodzaj nawiasów stosowana w wyrazeniu jednolinijkowym, czylisą klamrowe {}
+# No i zawsze na początku wyrażenia stoi cześć prezentująca jak będzie wyglądać para klucz/wartość.
+# {klucz: wartośc for elementListy in lista for k, y, z in elementListy}
+# Na przykład wyrażenie klucz: wartość może być przedstawione jako: k: (y, z)
+# Wówczas klucz to zmienna k, a wartość to krotka utworzona ze zmiennych y i z
 
 #dictBBC = {k: v for line in open('bbc_id.txt', 'r') for (v, k) in (line.strip('\n\r').split("\t"),)} --- jednolinijkowe tworzenie słownika z wartości przechowywanych w pliku,
 # k: v - określa jak będzie wyglądać słownik, tzn. k jako klucz i v jako wartość
 # for line in open('bbc_id.txt', 'r') - line jako zmienna będąca z zawartością pliku bbc_id.txt
 # for (v, k) in (line.strip('\n\r').split("\t"),) - v i k oznaczają zmienne do których rozpakowujęmy kolumny za pomocą polecenia: line.strip('\n\r').split("\t"), ilość tych zmiennych do których rozpakowujemy musi być równa ilości powstałych kolumn po podziale
 
-dictBBC = {k: v for line in open('bbc_id.txt', 'r') for (v, k) in (line.strip('\n\r').split("\t"),)}
+dictBBC = {k: v for line in open('Part4_Dictionaries_my2.1.txt', 'r') for (v, k) in (line.strip('\n\r').split("\t"),)}
 
 print(dictBBC)
 print(len(dictBBC))
+
+dictBBC_2 = {k: v1 for line in open('Part4_Dictionaries_my2.2.txt', 'r') for (v2, v1, k) in (line.strip('\n\r').split("\t"),)}
+
+print(dictBBC_2)
+print(len(dictBBC_2))
 
 resultDictSeriesName = {(36172241, "Zwierzęca klinika w sercu dżungli") : [3, 5, 8, 3, 5, 8, 3850, 6774, 10624, 1, 2, 3], \
                         (36171607, "Maluchy w świecie zwierząt") : [62, 17, 79, 62, 17, 79, 121315, 59828, 181143, 19, 8, 27]}
@@ -34,7 +46,7 @@ print(res_list)
 print(len(res_list))
 
  ### Zdłączenie dwóch słowników
-resultDict = ({ k: resultDictCookie.get(k, 0) + resultDictNonCookie.get(k, 0) for k in set(resultDictCookie) | set(resultDictNonCookie) })
+# resultDict = ({ k: resultDictCookie.get(k, 0) + resultDictNonCookie.get(k, 0) for k in set(resultDictCookie) | set(resultDictNonCookie) })
 
 ### Sortowanie słownika
 #print(OrderedDict(sorted(resultDictSeriesName.items(), key=lambda x: x[0])))
