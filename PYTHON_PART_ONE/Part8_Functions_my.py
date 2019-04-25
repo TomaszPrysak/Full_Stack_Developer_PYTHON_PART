@@ -17,7 +17,6 @@ def my_func(parametr="mój parametr default"):
     """
     print("To jest moja funkcja z {x} i opisem w IDE".format(x=parametr))
 
-
 my_func()
 
 # Przykłady funkcji:
@@ -54,7 +53,7 @@ def addNum(num1, num2):
 print(addNum(2,2))
 
 # Słówko kluczowe "return"
-#
+
 # Powyżej zostało opisane do czego służy to słówko.
 # Jednak najważniejszym jego zadaniem jest to, że powoduje momentalne
 # opuszczenie funkcji. Nawet jeżeli poniżej jest jeszcze kod funkcji.

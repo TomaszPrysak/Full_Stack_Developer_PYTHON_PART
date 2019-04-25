@@ -161,3 +161,40 @@ print('Zmienna x2 poza funkcja ma nowa wartosc = {x}'.format(x=x2)) # wyświetle
 print("#####")
 print(len(name)) # słówko len oznacza nazwę wbudowanej metody Pythona do zwracania długości kolekcji elementów (lista, string, słownik)
 #				   NIE MOŻNA stosować nazw zmiennych nazwami modułów Pythona.
+
+#/////////////////
+#/////////////////
+# Zasięg zmiennych 2
+
+# Zjawisko zasięgu zmiennych dotyczy rownież nie tylko definiowania zmiennych o identycznych nazwach gloalnych i lokalnych.
+# Dotyczy ono również sytuacji w których wewnątrz funkcji chcemy wykorzystać zmienną zdefiniowaną poza funkcją.
+# Będziemy taką zmienną wykorzystywać tylko do przypisania jej wartości do innej zmiennej.
+# Wówczas jeżeli wewnątrz funkcji nie istnieje lokalna zmienna o takie samej nazwie jak zmienna globalna (poza funkcją)
+# to ta zmienna globalna będzie wykorzystywana do dzałań. Jednak do działań które nie powodują jej nadpisanie.
+# Natomiast jeżeli działania wewnątrz funkcji będą próbowały dokonać zmiany wartości zmiennej o nazie takiej jak zmienna globalna
+# to wystąpi błąd, że działania na zmiennej jest dokonywana przed zdefiniowaniem zmiennej.
+# Pokażą to poniższe przykłady.
+
+print("####")
+# Przykład 1:
+test1 = 50 # zdefiniowanie zmiennej globalnej test1 z wartością 50
+def defTest1():
+	print(test1 + 50) # wewnątrz funkcji nastepuje działanie na zmiennej globalnej test1, ale takie działania które jej nie modyfikują.
+					  # Wewnątrz funkcji nie widnieje, inna zmienna o takiej samej zmiennej jak zmienna globalna test1 i dlatego zmienna globalna jest brana pod uwagę wewntrz tej funkcji.
+					  # Działanie dotyczy wyświetlenie wartości zmiennej globalnej test1.
+defTest1() # wywołanie funckji
+print(test1) # wyświetlenie wartości zmiennej globalnej test1, która oczywiście jest niezmienna
+
+print("####")
+# Przykład 2:
+test2 = 50 # zdefiniowanie zmiennej globalnej test2 z wartością 50
+def defTest2():
+	test2 = 50 + test2	# wewnątrz funkcji nastepuje działanie na zmiennej lokalnej test2, i jest to działanie które modyfikuje zmienną.
+						# W związku z tym, że próbujemy modufikować zmienną lokalną test2 przed jej zdefiniowaniem, wyświetli się błąd.
+						# Wyświetli się błąd ponieważ, interpreter nie wiąże tego że zmienna lokalna nazywa się tak samo jak zmienna globalna.
+						# Przez co nie bierze pod uwagę wartości zmiennej globalnej test2. Dlatego błąd ten będzie dotyczył braku zdefiniowania zmiennej lokalnej test2.
+						# Po prostu jeżeli pojawia się działanie modyfikacyjne na zmiennej to może ono dotyczyć tylko zmiennej lokalnej.
+						# Wyjątek stanowi funkcja z argumentem w której byśmy przekazywali wartość zmiennej globalnej, ale wówczas i tak zmienna globalna zamienia się na lokalną o nazwie użytej jako argument w definicji funkcji.
+	print(test2)
+defTest2()
+print(test2)

@@ -16,7 +16,7 @@
 
 # Stwórz funkcję, która będzie zwracać True albo False w zleżności od tego czy
 # w liście przekazywanej jako argument funkcji będzie znajdować się sekwencja liczb 1,2,3.
-# Sekwencja ta musi znajdować się gdziekolwiek w liści, ale muszą one
+# Sekwencja ta musi znajdować się gdziekolwiek w liście.
 
 # Przykłady:
 
@@ -120,8 +120,6 @@ print(doubleChar(string2))
 #####################
 ## -- PROBLEM 5 -- ##
 #####################
-
-# Read this problem statement carefully!
 
 # Mając 3 wartości będące liczbami całkowitymi, należy stworzyć funkcję która zwóci ich sumę.
 # Jednakże, jeśli jedna z tych wartości jest z przedziału 13 - 19 to wówczas przyjmujemy, że jej wartość wynosi 0.

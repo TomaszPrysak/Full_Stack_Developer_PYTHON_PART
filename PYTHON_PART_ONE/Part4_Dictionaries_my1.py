@@ -35,3 +35,4 @@ print(dict.get("key1","nieee mmmaaaaa")) # zwraca wartość klucza podanego w pi
 # Jeżeli podamy drugi argument wówczas on będzie zwrócony w momencie jak klucz z pierwszego argumentu nie będzie występować
 # w słowniku na którym metoda get() została wywołana.
 print(dict.get("key3",1)) # to samo co powyżej tylko juz z przykładem braku klucza w słowniku
+print(dict.iteritems()) # zwraca obiekt będący iteratorem przez słownik

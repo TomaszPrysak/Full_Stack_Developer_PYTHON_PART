@@ -20,9 +20,14 @@ print("tak" == "nie")
 # Jeżeli tak będzie to jest to tylko przypadek. W kolejnej iteracji będzie już inaczej.
 
 dict = {"romek":1,"atomek":2}
+# 1. Sposób
 for key in dict:
     print(key)
     print(dict[key])
+# 2. Sposób
+for key, item in dict.iteritems():
+	print(key)
+	print(item)
 
 # W Pythonie, w trakcie iterowania pętlą FOR przez elementy kolekcji, której poszczególne elementy są również kolekcjami,
 # mamy możliwość rozpoakowywania elementów tej wewnętrznej kolekcji do pojedynczych zmiennych zapisanych w konstrukcji pętli.
@@ -36,6 +41,11 @@ lista2 = [("a","b"),("c","d")]
 for lista2Item1, lista2Item2 in lista2:
     print(lista2Item1)
     print(lista2Item2)
+
+lista3 = [("a","b"),("c","d")]
+for index, item in enumerate(lista3):
+	print(index)
+	print(item)
 
 # Pętla WHILE
 
