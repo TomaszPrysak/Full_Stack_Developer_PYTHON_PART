@@ -64,3 +64,6 @@ print(len(res_list))
 OrderedDict(sorted(resultDictSeriesName.items(), key=lambda x: x[0][1]))
 # musimy używać metody OrderedDict przy sortowaniu słownika żeby nie został on zamieniony przez metode "sorted" na listę
 # ponieważ metoda "sorted" zwraca posortowaną liste
+
+# Źródła w internecie o Dict Comprehension:
+# https://www.datacamp.com/community/tutorials/python-dictionary-comprehension

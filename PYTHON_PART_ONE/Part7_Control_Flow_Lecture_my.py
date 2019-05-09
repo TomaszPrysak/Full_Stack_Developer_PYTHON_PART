@@ -11,6 +11,16 @@ print(1 == "1")
 print(1 == 1)
 print("tak" == "nie")
 
+# IF / ELSE
+# Czasami musimy zastosować wyrażenie warunkowe zawierające tylko if oraz else, nie zawierające elif.
+# Wówczas w celu zapisu jak najmniejszej ilości kodu możemy wykorzystać wyrażenie trójargumentowe.
+# Składnia:
+# wynik_gdy_prawda if warunek else wynik_gdy_fałsz
+# Na przykład:
+aa = 5
+bb = 4
+print("Ala ma kota" if aa > bb else "kot ma Ale")
+
 # Pętla FOR
 
 # Podczas iterowania przez elementy (pary klucz:wartość) słownika za pomocą petli FOR do zmiennej
