@@ -105,14 +105,14 @@ print(type(przyklad1)) # sprawdzenie typu obiektu
 # self.object_variable1= atrybut1
 # self.object_variable2 = atrybut2
 # Powyższą składnię możemy odczytac nastepująco: wartość parametru atrybut1 zapisz do późniejszego użytku w zmiennej obiektowej "self.object_variable1".
-# Parametr self w każdej zmiennej obiektowej umożliwia dostęp do tej zmiennej w ramach całej klasy.
+# Parametr self w każdej zmiennej obiektowej umożliwia dostęp do tej zmiennej w ramach całej klasy i klas nadrzędnych, z których ta klasa dziedziczy.
 # UWAGA!!! Jeżeli zdefiniujemy naszą metodę init z kilkoma argumentami to podczas tworzenia nowej instancji naszej klasy (tzn. nowego obiektu tej klasy) musimy podać wartości wszystkich argumentów.
 #		   Jeżeli tego nie zrobimy to wystąpi błąd. Aby zabezpieczyć się przed możliwym brakiem wartości argumentów podanych przez użytkownika podczas tworzenia obiektu musimy w definicji metody init przypisać argumentom domyślne wartości.
 # Jak będziemy chcieli użyć tej zmiennej w jakieś metodzie wewnątrz ciała klasy to również uzywamy self przed nazwą zmiennej.
 # Dotyczy to dokładnie tego samego jak chcemy wywołać jakąś zmienną lub metodę na jakimś obiekcie, już poza klasą. To na jego nazwie po kropce wpisujemy nazwę tej zmiennej lub metody.
 # W przypadku tworzenia klasy każdą zmienną i funkcję w definicji klasy rozpoczynamy od słówka self i po kropce piszemy nazwę zmiennej bądź funkcji.
-# W przypadku definicji klasy słówko self oznacza, że odnosimy się do zmiennej lub funkcji tylko wewnątrz definicji klasy.
-# Jednocześnie pozwala funkcji w klasie wywołać inną funkcję.
+# Słówko self oznacza, że odnosimy się do zmiennej lub metody tylko wewnątrz danej klasy.
+# Jednocześnie pozwala metodzie w klasie wywołać inną metodę.
 # Po stworzeniu obiektów z atrybutami mamy do nich dostęp za pomocą operatora kropkowego i nazwy zmiennej obiektowej.
 # Odwołanie się do zmiennej obiektowej następuje bez nawiasu otwartego ponieważ to jest atrybut i nie przyjmuje żadnych argumentów.
 # Obiekty tej samej klasy zawierają indywidualne wartości atrybutów. Każdy obiekt tej samej klasy może mieć różne wartości atrybutów.
@@ -192,8 +192,8 @@ class Kolo():
 		self.radius = radius
 	def area(self): # definicja metody area bez argumentów. Metoda opiera się na zmiennej klasowej oraz obiektowej. Z ich iloczyny zwraca pole powierzchni aktualnej instancji obiektu, czyli pole kola
 		return Kolo.pi * self.radius * self.radius # iloczyn zmiennej klasowej pi oraz zmiennej obiektowej self.radius
-												   # odwołanie się do zmiennych obiektowych self.radius nastepuje z uzyciem sels, ponieważ odwołujemy się do zmiennej aktualnej instacji obiektu na którym ją wywołujemy,
-												   # natomiast odwołanie do zmiennej klasowej nastepuję poprzez nazwę klasy natacji kropkowej z nazwą zmiennej, można też self przed nazwą zmiennej klasowej zamiast nazwy klasy, ale dzięki temu rozróżniamy zmienne klasowe i obiektowe.
+												   # odwołanie się do zmiennych obiektowych self.radius nastepuje z użyciem self, ponieważ odwołujemy się do zmiennej aktualnej instacji obiektu na którym ją wywołujemy,
+												   # natomiast odwołanie do zmiennej klasowej nastepuję poprzez nazwę klasy, natacji kropkowej wraz z nazwą zmiennej, można też użyć self przed nazwą zmiennej klasowej zamiast nazwy klasy, ale dzięki temu, że użyjemy nazwy klasy rozróżniamy zmienne klasowe i obiektowe.
 
 kolo1 = Kolo(2) # stworznie instancji o nazwie kolo1 obiektu Kolo
 print(kolo1.radius) # odwołanie do zmiennej obiektowej radius obiektu kolo1, jeżeli chcemy się odwołać do zmiennj obiektowej używamy operatora kropkowego, nie używamy nawiasów otwartych ponieważ to atrybut i nie przyjmuje żadnych argumentów
@@ -231,14 +231,14 @@ class Pies_hermetyzajca():
 		self.__imie = imie # przekazanie parametru imie do prywatnej zmiennej obiektowej self.__imie, deklaracja prywatnej zmiennej obiektowej (prywatnego atrybutu), wówczas do zwrócenia jej wartości oraz do ustawienia nowej warości będą potrzebne metody typu "getter" oraz "setter"
 		self.__glos = glos # przekazanie parametru glos do prywatnej zmiennej obiektowej self.__glos, deklaracja prywatnej zmiennej obiektowej (prywatnego atrybutu), wówczas do zwrócenia jej wartości oraz do ustawienia nowej warości będą potrzebne metody typu "getter" oraz "setter"
 	def get_gatunek(self): # definicja metody get_gatunek bez argumentów. Metoda opiera się na prywatnej zmiennej klasowej (prywatnym argumencie) Pies_hermetyzajca.__gatunek
-		return Pies_hermetyzajca.__gatunek # Metoda zwraca wartość prywatnej zmiennej klasowej Pies_hermetyzajca.__gatunek, do prywantej zmiennej klasowej dostajemy się poprzez nazwę klasy i po kropce nazwy zmiennej, nie kończy się nawiasami ponieważ to atrybut a nie metoda, atrybuty nie przyjmują argumentów
+		return Pies_hermetyzajca.__gatunek # metoda zwraca wartość prywatnej zmiennej klasowej Pies_hermetyzajca.__gatunek, do prywantej zmiennej klasowej dostajemy się poprzez nazwę klasy i po kropce nazwy zmiennej, nie kończy się nawiasami ponieważ to atrybut a nie metoda, atrybuty nie przyjmują argumentów
 	def get_imie(self): # definicja metody get_imie bez argumentów. Metoda opiera się na prywatnej zmiennej obiektowej (prywatnym argumencie) self.__imie
 		return self.__imie # metoda zwraca wartość prywatnej zmiennej obiektowej self.__imie, do prywatnej zmiennej obiektowej dostajemy się słówko self i po kropce nazwy zmiennej, nie kończy się nawiasami ponieważ to atrybut a nie metoda, atrybuty nie przyjmują argumentów
-	def set_imie(self, imie): # definicja metody set_imie przyjmująca jeden argument. Metoda opiera się na prywantej zmiennej obiektowej (prywatnym argumencie) self.__imie. Wartość argumentu przekazujemy do metody w momencie wywoływania tej metody z instancji obiektu
+	def set_imie(self, imie): # definicja metody set_imie przyjmującej jeden argument. Metoda opiera się na prywantej zmiennej obiektowej (prywatnym argumencie) self.__imie. Wartość argumentu przekazujemy do metody w momencie wywoływania tej metody z instancji obiektu
 		self.__imie = imie # argument metody imie przekazujemy do prywatnej zmiennej obiektowej self.__imie, innymi słowy mówiąc nadpisujemy prywatną zmienną obiektową nową wartością którą przekazaliśmy do metody w postaci argumentu tej metody imie
 	def get_glos(self): # definicja metody get_glos bez argumentów. Metoda opiera się na prywatnej zmiennej obiektowej (prywatnym argumencie) self.__glos
 		return self.__glos # metoda zwraca wartość prywatnej zmiennej obiektowej self.__glos, do prywatnej zmiennej obiektowej dostajemy się słówko self i po kropce nazwy zmiennej, nie kończy się nawiasami ponieważ to atrybut a nie metoda, atrybuty nie przyjmują argumentów
-	def set_glos(self, glos):  # definicja metody set_glos przyjmująca jeden argument. Metoda opiera się na prywantej zmiennej obiektowej (prywatnym argumencie) self.__glos. Wartość argumentu przekazujemy do metody w momencie wywoływania tej metody z instancji obiektu.
+	def set_glos(self, glos):  # definicja metody set_glos przyjmującej jeden argument. Metoda opiera się na prywantej zmiennej obiektowej (prywatnym argumencie) self.__glos. Wartość argumentu przekazujemy do metody w momencie wywoływania tej metody z instancji obiektu.
 		self.__glos = glos # argument metody glos przekazujemy do prywatnej zmiennej obiektowej self.__glos, innymi słowy mówiąc nadpisujemy prywatną zmienną obiektową nową wartością którą przekazaliśmy do metody w postaci argumentu tej metody glos
 
 puszek = Pies_hermetyzajca() # stworznie instancji o nazwie puszek obiektu Pies_hermetyzajca
@@ -257,41 +257,97 @@ print(puszek.get_gatunek()) # wywołanie metody bezargumentowej typu "getter" ge
 # Natomiast aby jedna metoda zdefiniowana w ciele klasy wywołała inną metodę należącą do tej samej klasy lub klasy nadrzędnej, używamy słówka self z notacją kropkową i po niej nazwę metody zdefiniowanej w tej klasie lub nadrzędnej.
 # W definicji klasy mamy też możliwość, tak jak w przypadku funkcji, tworzenia kilkulinijkowych komentarzy które są wykorzystywane do opisywania klas przez środowisko IDE w którym pracujemy.
 # W momencie kiedy chcemy utworzyć obiekt konkretnej klasy to środowisko IDE będzie nam podpowadać możliwe klasy do wyboru to po wybraniu klasy kursorami wyświetli nam się okienko z informacją zawartą w tym kilkulinijkowym komentarzu który zamieściliśmy definiując klasę.
+# Taka sama sytuacja się tyczy gdy opiszemy metodę w klasie, w momencie jej wywoływania na jednej z instancji obiektu również środowisko IDE wyświetli nam informacje z komentarza który zawarliśmy w definicji klasy.
 
 # Przykład 5:
 # Klasa zdefiniowana z metodami z których jedna metoda wywołuje inną metodę.
+# Dodatkowo zastosowano komentarze wielolinijkowe w celu wyświetlania ich w śrdodowisku IDE
 
 class Prostokat():
-	def __init__(self, dl=1, szer=1):,
+	def __init__(self, dl=1, szer=1): # funkcja wywoływana podczas inicjalizacji obiektu ustawiająca zmiennej obiektowe, jeżeli podczas inicjalizacji obiektu nie zostaną podane argumenty wówczas ich wartości będą domyślne dl=1, szer=1
 		"""
 		Klasa tworząca obiekt typu prostokąt.
 		Przyjmuje dwa argumenty:
 		arg1 = długość naszego prostokąta (domyslnie = 1)
 		arg2 = szerokość naszego prostokąta (domyślnie = 1)
 		"""
-		self.dl = dl
-		self.szer = szer
-	def pole_podstawy(self):
+		self.dl = dl # przekazanie parametru dl do zmiennej obiektowej self.dl,deklaracja zmiennej obiektowej
+		self.szer = szer # przekazanie parametru szer do zmiennej obiektowej self.szer,deklaracja zmiennej obiektowej
+	def pole_podstawy(self): # definicja metody pole_podstawy bez argumentów. Metoda opiera się na zmiennych obiektowych. Z ich iloczyny zwraca pole powierzchni aktualnej instancji obiektu, czyli pole prostokąta
 		"""
 		Metoda obliczająca pole powrzechni naszego prostokąta na podstawie danych przyjętch podczas tworzenia obiektu.
 		"""
-		return self.dl * self.szer
-	def obwod(self):
+		return self.dl * self.szer # iloczyn zmiennych obiektowych self.dl oraz self.szer
+								   # odwołanie się do zmiennych obiektowych nastepuje z użyciem self, ponieważ odwołujemy się do zmiennej aktualnej instacji obiektu na którym ją wywołujemy,
+
+	def obwod(self): # definicja metody obwod bez argumentów. Metoda opiera się na zmiennych obiektowych. Z sumy ich podwojonej wartości zwraca obwód aktualnej instancji obiektu, czyli obwód prostokąta
 		"""
-		
+		Metoda obliczająca obwód naszego prostokąta na podstawie danych przyjętcyh podczas tworzenia obiektu.
 		"""
-		return (2 * self.dl) + (2 * self.szer)
-	def objetosc_prostopadloscianu_z_podstawy(self, wys=1):
+		return (2 * self.dl) + (2 * self.szer) # suma iloczynu zmiennych obiektowych self.dl oraz self.szer
+											   # odwołanie się do zmiennych obiektowych nastepuje z użyciem self, ponieważ odwołujemy się do zmiennej aktualnej instacji obiektu na którym ją wywołujemy,
+
+	def objetosc_prostopadloscianu_z_podstawy(self, wys=1): # definicja metody objetosc_prostopadloscianu_z_podstawy przyjmującej jeden argument. Metoda zwraca objętość prostopadłościaniu opartego o wymiary naszego prostokąta.
+															# Tworząc instancję obiektu Prostokat() podawalismy jedynie dwa argumenty będące długością i szerokością. Dlatego zamtem metoda przyjmuje jeden argument, tzn. wysokość potrzebną do obliczenia objętości. Jeżeli nie podamy argumentu zmienna wys przjmie wartość domyslną 1.
+															# Objętość prostopadłościanu oblicza się poprzez iloczyn pola podstawy i wysokości.
+															# Ponieważ mamy osobną metodę już zdefiniowanej w tej samej klasie do obliczania pola podstawy w związku z tym nie będziemy jeszcze raz zapisywać obliczeń pola podstawy tylko wywołamy metodę self.pole_podstawy() zdefiniowanną w tej samej klasie, która zwróci nam wynik pola podstawy.
+															# I wynik ten pomnozymy przez wartość argumentu przekazanego do metody w trakcie jej wywołania.
+															# Słówko self tutaj, tak jak w przypadku odwoływania się do zmiennych obiektowych, oznacza, że odwołujemy się do metody aktualnej instacji obiektu na którym ją wywołujemy,
 		"""
 		Metoda obliczająca objętość prostopadłościanu utworzonego na podstawie naszego prostokąta.
 		Przyjmuje jeden argument:
 		arg = wysokość prostopadłościanu (domyślnie = 1)
 		"""
-		return self.pole_podstawy() * wys
+		return self.pole_podstawy() * wys # iloczyn wartości zmiennej lokalnej wys będącej tak naprawdę argumentem metody oraz wartości otrzymanej z wywołania metody self.pole_podstawy()
+										  # metoda self.pole_podstawy() była wcześniej zdefiniowana w klasie i zwraca iloczn zmiennych obiektowych self.dl oraz self.szer
 
-prost1 = Prostokat(5, 6)
-print(prost1.dl)
-print(prost1.pole_podstawy())
-print(prost1.obwod())
-print(prost1.objetosc_prostopadloscianu_z_podstawy(7))
-print(prost1.objetosc_prostopadloscianu_z_podstawy(5))
+prost1 = Prostokat(5, 6) # stworznie instancji o nazwie prost1 obiektu Prostokat
+print(prost1.dl) # odwołanie do zmiennej obiektowej dl obiektu prost1, jeżeli chcemy się odwołać do zmiennj obiektowej używamy operatora kropkowego, nie używamy nawiasów otwartych ponieważ to atrybut i nie przyjmuje żadnych argumentów
+print(prost1.pole_podstawy()) # wywołanie metody bezargumentowej pole_podstawy na obiekcie prost1, używamy nawiasów ponieważ to jest metoda i mimo, że nie przyjmuje żadnych argumentów to konwencja wywoływania metod (funkcji też) nakazuje stosowanie nawiasów
+print(prost1.obwod()) # wywołanie metody bezargumentowej obwod na obiekcie prost1, używamy nawiasów ponieważ to jest metoda i mimo, że nie przyjmuje żadnych argumentów to konwencja wywoływania metod (funkcji też) nakazuje stosowanie nawiasów
+print(prost1.objetosc_prostopadloscianu_z_podstawy(7)) # wywołanie metdy argumentowej typu objetosc_prostopadloscianu_z_podstawy, w argumencie metody przekazujemy wartość jaką chcemy użyć w obliczeniach zdefiniowanych w metodzi
+print(prost1.objetosc_prostopadloscianu_z_podstawy(5)) # wywołanie metdy argumentowej typu objetosc_prostopadloscianu_z_podstawy, w argumencie metody przekazujemy wartość jaką chcemy użyć w obliczeniach zdefiniowanych w metodzi
+
+#/////////////////
+#/////////////////
+# Dziedziczenie
+
+# W Pythonie obiekty definiujemy poprzez klasy, które pozwalają nam na podział obiektów na grupy.
+# Przykładowy diagram przedstawiający klasy łączace instancje tych klas w grupy:
+
+#          RZECZOWNIKI
+#         /           \
+#        /             \
+# NIEŻYWOTNE           ŻYWOTNE
+#     |                   |
+#   ROWER             ZWIERZĘTA
+#     |                   |
+#  GÓRSKIE              SSAKI
+#                         |
+#                        PSY
+
+# Czytając powyższy diagram można go interpretować następująco:
+# Główną klasą jest klasa RZECZOWNIKI. O jeden poziom niżej mamy klasy:
+# NIEŻYWOTNE oraz ŻYWOTNE.
+# Ta pierwsza klasa ma pod sobą kolejno klasy ROWER a następnie GÓRSKIE.
+# Ta druga ma kolejno klasy ZWIERZĘTNA, SSAKI i na końcu PSY.
+
+# Jeżeli jedna klasa jest częścią durigej, to mówimy wtedy, że jest jej dzieckiem (child),
+# a tę która ma w swojej części drugą klasę mówimy, że jest jej rodzicem (parent).
+# Na naszym diagramie klasa znajdująca się bezpośrednio nad inną klasą jest jej rodzicem, a klasa bezpośrednio poniżej jest dzieckiem.
+# Na przykład klsay Żywotne i Nieżywotne są dziećmi klasy Rzeczowniki, a to oznacza, że klasa Rzeczowniki jest ich rodzicem.
+# Analogicznie klasa Ssaki jest rodzicem klasy Psy, która jest jej dzieckiem.
+# Oczywiście relacje między kolasami nie sięgają tylko do jednego pokolenia w tył.
+# Klasa Rzeczowniki jest rodzicem klasy Żywtone oraz przodkiem wszystkich innych klas znajdujących się pod nią (oczywiście już powiedzieliśmy, że jest ona rodzicem klasy Żywotne).
+# Idąc dalek klasa Pies jest potomkiem klasy Rzeczowniki, ale również potomkiem klasy Żywtne i Zwierzęta.
+# Jest też potomkiem klasy Ssasaki, ale wówczas nazywamy ją dzieckiem klasy Ssaki.
+
+# Powyższe wprowadzenie było potrzebne aby zrozumieć temat dziedziczenia.
+# Dziedziczenie to sposób defniniowania nowych klas jako uzupełnienie, rozwinięcie klas już zdefiniowanych.
+# Nowo utworzone klasy nazywane są pochodnymi (potomkami), dziedziczącymi, natomiast klasy od których pochodzą, dziedziczą nazywane są klasami bazowymi.
+# Najważniejszym atutem dziedziczenia jest ponowne uzycie kodu i zmniejszenie złożoności programu.
+# Dzieje się tak dlatego, że klasy pochodne (potomkowie, dzieci) posiadają dostęp do metod i atrybutów (czyli zmiennych obiektowych oraz zmiennych klasowych) klas bazowych (rodziców, przodków).
+# Stąd mówimy, że metody i atrybuty (zmienne) są dziedziczone.
+# Takie podejście do programowania powoduje, że klasy pochodne (potomkowie, dzieci) rozszerzają, zmieniają funkcjonalność klas bazowych (rodziców, przodków).
+# Rozszerzają, zmieniają ponieważ kod klasy będącej dzieckiem klasy bazowej będzie tak napisany aby miał wpływ na to co zawiera kod klasy bazowej.
+# Będzie on zawierał odpowiednie metody i atrybuty przetwarzające informacje z klasy bazowej. Oczywiście będzie również zawierać unikatowe metody i atrybuty.
