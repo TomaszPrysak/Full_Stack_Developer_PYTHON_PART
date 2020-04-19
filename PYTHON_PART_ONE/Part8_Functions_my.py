@@ -70,7 +70,7 @@ print(addNum(2,2))
 # Często wyrażenie LAMBDA wykorzystujemy po to aby dokonać operacj na każdym elemencie jakiejś kolekcji.
 # Wówczas wyrażenie to stosujemy z innymi metodami.
 
-# Metody z którymi stosujemy wyrażenie LAMBDA:
+# Metody z którymi stosujemy wyrażenie LAMBDA (oczywiście mogą też być stosowane osobno):
 
 # filter(funkcja, kolekcjaElementów) - metoda zwraca te elementy z kolekcjiElementów na których operacje
 #                                      występujących w funkcji jest możliwe do wykonania. Możliwośc wykonania
@@ -78,6 +78,8 @@ print(addNum(2,2))
 #                                      Zwracane elemenety kolekcji są w oryginalne postaci, nie przetworzone przez funkcje.
 #                                      Jednym słowem metoda filter() wykorzystywana jest do sprawdzania możliwości wykonania funkcji
 #                                      na elementach kolekcji.
+#                                      Należy jednak pamiętać, że zwrócony obiekt jest obiektem typu filter.
+#                                      Wiec aby mieć dostęp do elementów działania funkcji filter() należy jeszcze dokonać tego za pomocą funkcji list()
 
 mojaLista = [1,2,3,4]
 result2 = filter(lambda x: x%2 == 0, mojaLista) # na każdym elemencie kolekcji mojaLista wykonywane jest wyrażenie LAMBDA.
@@ -85,7 +87,11 @@ result2 = filter(lambda x: x%2 == 0, mojaLista) # na każdym elemencie kolekcji 
 #                                                a następnie dokonywana jest operacja ze zmienną x, w tym przypadku dokonywane jest pobieranie reszty
 #                                                z dzielenia elementu przez 2 i sprawdzenie czy reszta jest równa 0.
 #                                                Jeżeli tak to metoda filter zwróci ten element w postaci royginalne. Doda go do nowej listy result2.
-print(result2)
+#                                                Czyli przekonwertować obiekt typu filter na listę.
+
+
+print(result2) # zwrócony pozostanie obiekt typu filter
+print(list(result2)) # konwersja obiektu typu filter na listę aby móc działać z tą rzeczywistą listą
 
 # Gdybyśmy nie chcieli zastosować LAMBDY wówczas musilibyśmy napisać następującą funkcję:
 # def checkReszte(num):
@@ -101,7 +107,13 @@ result3 = map(lambda x: x*2, mojaLista2) # na każdym elemencie kolekcji mojaLis
 #                                          Działa to tak, że każdy element listy jest przypisywany do zmiennej operacyjnej X,
 #                                          a nastepnie dokonywana jest operacje ze zmienną X, w tym przypadku dokonywane jest podwojenie zmiennej X o 2.
 #                                          A nastepnie wynik podowjenia zmiennej X jest zwracany i dodawany do nowej listy result3.
-print(result3)
+#                                          Należy jednak pamiętać, że zwrócony obiekt jest obiektem typu map.
+#                                          Wiec aby mieć dostęp do elementów działania funkcji map() należy jeszcze dokonać tego za pomocą funkcji list()
+#                                          Czyli przekonwertować obiekt typu map na listę.
+
+print(result3) # zwrócony pozostanie obiekt typu map
+print(list(result3)) # konwersja obiektu typu map na listę aby móc działać z tą rzeczywistą listą
+
 
 # Gdybyśmy nie chcieli zastosować LAMBDY wówczas musilibyśmy napisać następującą funkcję:
 # def multiplitaction(num):
