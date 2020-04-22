@@ -5,7 +5,7 @@
 #/////////////////
 # Programowanie obiektowe
 
-# W tym rozdziale koncentrujemy się na Programowaniu Obiektowtym w Pythonie.
+# W tym rozdziale skoncentrujemy się na Programowaniu Obiektowtym w Pythonie.
 
 # Istnieje bardzo dużo kursów, samouczków obejmujących lekcje programowania obiektowego.
 # Na końcu tego pliku będzie podlinkowanych kilka z nich.

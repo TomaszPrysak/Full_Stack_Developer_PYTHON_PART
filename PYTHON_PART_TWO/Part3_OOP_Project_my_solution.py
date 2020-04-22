@@ -189,7 +189,7 @@ while human.still_has_cards() and computer.still_has_cards():
         # human.hand.getAllCardFromTable(computer.hand.cards)
 
     print("Człowiekowi w tali zostało {x} kart, komputerowi zaś {y}".format(x=len(human.hand.cards), y=len(computer.hand.cards)))
-
+    
 if human.still_has_cards() == True:
     print("Wygrał Człwoiek :) !!")
 else:
