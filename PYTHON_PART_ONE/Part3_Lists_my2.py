@@ -24,7 +24,7 @@ print(firstColumn1)
 
 # Wersja z rozpakowywaniem zmiennych:
 firstColumn11 = [x for x,y,z in lista] # jednolinijkowe wyrażenie, które iteruje przez wszystkie elementy listy.
-# Każdy element listy to trój elementowa lista. W związku z tym od razu rozpakowywujemy je do trzech zmiennych.
+# Każdy element listy to trójelementowa lista. W związku z tym od razu rozpakowywujemy je do trzech zmiennych.
 # Dzięki temu tylko poprzez wskazanie zmiennej umieszczamy ją w nowej liści.
 print(firstColumn11)
 

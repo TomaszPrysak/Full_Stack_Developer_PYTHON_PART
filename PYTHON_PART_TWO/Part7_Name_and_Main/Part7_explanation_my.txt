@@ -1,0 +1,221 @@
+/////////////////
+/////////////////
+Część pierwsza
+Stosowanie if __name__ == "__main__" jest ściśle powiązane z modułami i pakietami i ze zmienną __name__.
+
+Zacznijmy więc od zmiennej __name__.
+
+W momencie kiedy uruchamiamy do wykonania plik Pythona (*.py), niezależnie czy to robimy z konsoli,
+czy to uruchamiając go w jednym z dostępnych środowisk developerskich (tzw. IDE), to interpreter pythona,
+zawsze na początek, bez naszej wiedzy, ustawia kilka zmiennych, wykorzystywanych podczas wykonywania naszego programu.
+Procedura ta dzieje się za każdym razem.
+
+Jedną z takich zmiennych jest: "__name__".
+
+I tutaj już występuję powiązanie tego tematu z plikami pythonowskimi (*.py) importowanymi jako moduły, pakiety.
+Jak wiadomo pliki modułów i pakietów to zbiór często wykorzystywanych funkcji i klas lub innych obiektów zapisanych w osobnym pliku z kodem pythona (np.: moduleFileName.py).
+
+W momencie uruchomienia do wykonania naszego skryptu, aplikacji pythonowskiej interpreter tworząc na samym początku
+zmienną __name__ od razu przypisuje do niej pewną wartość.
+Jeżeli plik który został wykonany jest naszym programem głównym, czyli póki co nie został jeszcze zaimportowany jakikolwiek moduł,
+to do tej zmiennej __name__ zostaje przypisana wartość __mian__.
+Natomiast jeżeli w pliku głównym importujemy jeszcze jakiś plik modułu to po uruchomieniu naszego głównego pliku programu następuje importowanie
+modułu i w tym czasie w interpreter dla tamtego pliku tworząc zmienną __name__ przypisze wartość którą będzie nazwa pliku modułu.
+
+Prześledźmy to co wyżej zostało powiedziane na przykładzie.
+W pliku Part7_one_my.py części pierwszej:
+"
+import Part7_two_my
+print("Uruchomiony został plik Part7_one_my.py, zmienna __name__ ma wartość = {x}".format(x = __name__))
+"
+Natomiast w pliku Part7_two_my.py części pierwszej:
+"
+print("Uruchomiony został plik Part7_two_my.py, zmienna __name__ ma wartość = {x}".format(x = __name__))
+"
+Wykonując plik Part7_one_my.py nastąpi zwrócenie na ekran informacji o wartości przypisanej do zmiennej __name__.
+W przypadku pliku Part7_one_my.py wartością zmiennej __name__ będzie: __mian__.
+Natomiast dla pliku Part7_two_my.py wartością tą będzie nazwa modułu który został zaimportowany czyli nazwa pliku tego bez rozszerzenia.
+
+Otrzymany wynik wykonania pliku Part7_one_my.py:
+"
+Uruchomiony został plik Part7_two_my.py, zmienna __name__ ma wartość = Part7_two_my
+Uruchomiony został plik Part7_one_my.py, zmienna __name__ ma wartość = __main__
+"
+
+UWAGA !!! Wartości zmeinnych dla poszczególnych plików będą różne ponieważ głównym naszym plikiem który wykonujemy
+jest Part7_one_my.py w związku z tym zmienna __name__ przyjmuje wartość __mian__.
+Natomiast plik Part7_two_my.py jest plikiem importowanym i interpreter "wiedząc" i tak go wykonuje czyli tworzy dla niego jego wewnętrzną zmienną __name__.
+Ale, że plik ten wykonuje jako plik importowany to zmienna __name__ dla tego pliku będzie mieć wartość od nazwy modułu tego pliku czy od jego nazwy.
+
+UWAGA !!! Jeżeli byśmy wykonali osobno plik Part7_two_my.py, który nie byłby modułem importowanym, to wówczas
+zmienna __name__ utworzona dla tego pliku miała by wartość __mian__. Ponieważ ten plik byłby plikiem głównym.
+A z kolei jeżeli w pliku Part7_two_my.py importowalibyśmy plik Part7_one_my, to wówczas zmienna __name__ dla tego pliku importowanego
+miałaby wartość od jego nazwy bez rozszerzenia
+
+Podsumowując zmienną __name__:
+Zmienna __name__ dla głównego pliku naszego programu zawsze będzie mieć wartość __main__.
+Natomiast jeżeli w pliku głównym importujemy moduł to interpreter wczytując plik modułu przypisze dla jego wewnętrznej zmiennej __name__
+wartość będącą nazwą modułu czyli nazwą pliku będącego modułem ale bez rozszerzenia (*.py)
+
+/////////////////
+/////////////////
+Część druga
+Teraz czas na wykorzystanie wiedzy na temat zmiennej __name__.
+
+Stosowanie zmiennej __name__ oraz wartości __main__ następuje zazwyczaj w wyrażeniu warunkowym if:
+
+if __name__ =="__main__":
+  do something here
+else:
+  do something here
+
+Wprowadźmy dodajmy zatem dodatkowy kod i teraz dla części drugiej plik Part7_one_my.py wygląda następująco:
+"
+if __name__ == "__main__":
+    print("Plik Part7_one_my.py wykonywany gdy uruchamiany jako plik główny")
+else:
+    print("Plik Part7_one_my.py wykonywany gdy importowany jako moduł")
+"
+Natomiast plik Part7_two_my.py w części drugiej wygląda następująco:
+"
+if __name__ == "__main__":
+    print("Plik Part7_two_my.py wykonywany gdy uruchamiany jako plik główny")
+else:
+    print("Plik Part7_two_my.py wykonywany gdy importowany jako moduł")
+"
+
+Wykonując plik Part7_one_my.py jako plik główny interpreter do zmiennej __name__ przypisze wartość __main__, ponieważ to jest główny plik.
+A zatem w wyrażeniu warunkowym tego pliku zostanie to rozpoznane i wykonany zostanie kod który wyświetli komunikat z sekcji if:
+"
+Plik Part7_one_my.py wykonywany gdy uruchamiany jako plik główny
+"
+
+Natomiast wykonując plik Part7_one_my.py jako plik główny interpreter zaimportuje plik Part7_two_my.py jako moduł.
+Następnie dla tego pliku w jego wewnętrznej zmiennej __name__ przypisze wartość będącą nazwą tego pliku jako nazwa moduły bez rozszerzenia (*.py).
+A zatem przechodząc dalej interpreter napotykając na wyrażenie warunkowe tego pliku jako zaimportowanego modułu rozpozna to, że zmienna ma wartość od nazwy pliku jako modułu i
+wykonany zostanie kod który wyświetli komunikat z sekcji else:
+"
+Plik Part7_two_my.py wykonywany gdy importowany jako moduł
+"
+
+Oprócz powyższych komunikatów będą również widoczne komunikaty zdefiniowane w części pierwszej pliku Part7_one_my.py jak i części pierwszej pliku Part7_two_my.py.
+Kolejną kwestią jest kolejność zwracania komunikatów w konsoli. Oczywiście jej kolejność będzie taka jak zgodnie z przechodzeniem interpretera przez plik główny, w tym wypadku przez Part7_one_my.py.
+Interpreter najpierw przypisze wartosć __main__ do zmiennej __name__ głównego pliku Part7_one_my.py, następnie przejdzie do importowania modułu, czyli
+otworzy plik Part7_two_my.py przypisze w nim wartość będącą nazwą modułu bez rozszerzenia do wewnętrznej zmiennej __name__ tego pliku modułu.
+Następnie wykonany zostanie kod z dalszej części pliku modułu. W naszym przypadku min. wyrażenie warunkowe w którym zostanie wykonany kod z sekcji else, ponieważ jest to plik importowany jako moduł, nie jest to plik główny.
+Dopiero po przeczytaniu całego pliku modułu interpreter przejdzie przez plik główny i wykona min. wyrażenie warunkowe w którym zostanie wykonany kod z sekcji if, ponieważ jest to plik główny.
+
+UWAGA !!! Jeżeli byśmy wykonali osobno plik Part7_two_my.py, który nie byłby modułem importowanym, to wówczas
+zmienna __name__ utworzona dla tego pliku miała by wartość __mian__. Ponieważ ten plik byłby plikiem głównym.
+A z kolei jeżeli w pliku Part7_two_my.py importowalibyśmy plik Part7_one_my, to wówczas zmienna __name__ dla tego pliku importowanego
+miałaby wartość od jego nazwy bez rozszerzenia.
+Natomiast w pliku głównym Part7_two_my.py w wyrażeniu warunkowym wykonany byłby kod z sekcji if poniważ to jest plik główny a świadczy o tym wartość zmiennej __name__.
+A w pliku importowanym Part7_one_my.py w wyrażeniu warunkowym wykonany byłby kod z sekcji else poniważ to jest plik importowany a świadczy o tym właśnie jego wewnętrzna zmienna __name__.
+
+/////////////////
+/////////////////
+Część trzecia kropka jeden
+Kolejność wykonywania kodu.
+
+Używanie konstrukcji if __name__ == "__main__" jest doskonałym przykładem tego w jakiej kolejności wykonywany jest kod pythona.
+I po to też stosuje się tą konstrukcję aby podczas importowania modułów nie wykonywać pewnych fragmentów kodu który nie chcemy aby był wykonywany.
+Może to mieć miejsce jeżeli raz jeden plik stosujemy jako główny plik wykonywalny a w innej sytuacji jako plik modułu.
+
+W części piątej dodaliśmy do kodu obu plików definicje funkcji.
+W pliku Part7_one_my.py są to następujące funkcji:
+"
+def funkcja_pierwsza():
+    print("Funkcja #1 z pliku Part7_one_my.py")
+def funkcja_druga():
+    print("Funkcja #2 z pliku Part7_one_my.py")
+"
+Natomiast w pliku Part7_two_my.py są to funkcje:
+"
+def funkcja_trzecia():
+    print("Funkcja #3 z pliku Part7_two_my.py")
+def funkcja_czwarta():
+    print("Funkcja #4 z pliku Part7_two_my.py")
+"
+
+Takie zdefiniowanie funkcji w obu plikach nie wpłynie na działanie i zwracanie informacji po uruchomieniu pliku głównego jakim jest Part7_one_my.py
+Dzieje się tak dlatego, że funkcje te zostały zdefiniowane, ale w żadnym miejscu kodu pliku głównego (Part7_one_my.py) jak i pliku zaimportowanego modułu (Part7_two_my.py) nie zostały wywołane.
+Po prostu interpreter przechodząc przez plik główny potem przez plik modułu i znowu przez plik główny wykonuje kod o najwyższym poziomie.
+Funkcje które zostały zdefiniowane a nie wywołane, nie zostają wykonane.
+
+/////////////////
+Część trzecia kropka dwa
+
+Aby funkcje z części trzeciej kropka jeden zostały wykonane musimy je wywołać w kodzie programu.
+Ponieważ plikiem głównym naszego programu jest plik Part7_one_my.py to jeżeli chcielibyśmy aby funkcje zostały wywołane z wyrażenia warunkowego
+to musimy wywołanie funkcji umieścić w sekcji if ponieważ zmienna __name__ będzie posiadać wartość __main__ z racji tego, że ten plik jest plikiem głównym.
+A wiec dodamy wywołanie funkcji w pliku Part7_one_my.py w następujący sposób:
+"
+if __name__ == "__main__":
+    print("Plik Part7_one_my.py wykonywany gdy uruchamiany jako plik główny")
+    # Część trzecia kropka dwa
+    funkcja_pierwsza()
+    Part7_two_my.funkcja_trzecia()
+"
+Jak widać dodaliśmy wywołanie funkcji zdefiniowanej bezpośrednio w pliku głównym funkcja_pierwsza(), jak i wywołanie funkcji zdefiniowanej w pliku modułu Part7_two_my.funkcja_trzecia().
+Powyższe spowoduje, że interpreter w pliku głównym najpierw przypisze do zmiennej __name__ wartość __main__. Następnie na jego drodze występuje importowanie pliku modułu.
+A więc interpreter otworzy ten plik i znowu na samym początku tego pliku w jego wewnętrznej zmiennej __name__ przypisze nazwę modułu jako wartość.
+Następnie interpreter będąc w pliku modułu będzie przechodzić przez ten plik. I najpierw wykona polecenie print(...).
+Następnie dokona definicji funkcji oraz ich importu do pliku głównego ale ich nie wykona z oczywistych względów (bo nie zostały wołane).
+A następnie zostanie wykonany kod z wyrażenia warunkowego, ale tylko z sekcji else, ponieważ to plik modułu a więc zmienna __name__ NIE zawiera wartości __main__.
+Czyli zostanie wykonane polecenie print(...) z sekcji else.
+Po tym interpreter dotrze do końca tego pliku modułu i wróci do głównego pliku będąc w miejscu lini kodu gdzie był import pliku modułu.
+A więc teraz interpreter będzie przechodził przez kod pliku głównego.
+Najpierw zostanie wykonane polecenie print(...). Następnie zostaną zdefiniowane funkcje. Ale póki co nie zostaną wykonane bo w tym miejscu jest ich definicja, nie wywołanie.
+Następnie interpreter dotrze do wyrażenia warunkowego i wykona z niego polecenia z sekcji if, ponieważ jest to główny plik a zatem zmienna __name__ będzie mieć wartość __main__.
+W sekcji tej najpierw zostanie wykonane polecenie print(...).
+A następnie po kolei najpierw funkcja zdefiniowana w pliku głównym funkcja_pierwsza().
+W drugiej kolejności funkcja zdefiniowana w pliku modułu wywołana poprzez wywołanie nazwy modułu z notacją kropkową nazwy funkcji z pliku modułu Part7_two_my.funkcja_trzecia().
+Po tych działaniach interpreter dotrze do końca pliku głównego i zakończy działanie pliku głównego.
+
+/////////////////
+Część trzecia kropka trzy
+
+Żeby jeszcze bardziej uzmysłowić kolejność wykonywania kodu przez interpreter zmodyfikujemy trochę wyrażenie warunkowe pliku modułu.
+Dodamy wywołanie funkcji zdefiniowanej w pliku modułu Part7_two_my.py. Jednak aby to było możliwe
+to musimy wywołanie funkcji umieścić w sekcji else ponieważ zmienna __name__ pliku modułu NIE posiada wartość __main__ z racji tego, że ten plik NIE jest plikiem głównym i zmienna __name__ będzie posiadać wartość jako nazwa modułu.
+A wiec dodamy wywołanie funkcji w pliku Part7_two_my.py w następujący sposób:
+"
+if __name__ == "__main__":
+    print("Plik Part7_two_my.py wykonywany gdy uruchamiany jako plik główny")
+else:
+    print("Plik Part7_two_my.py wykonywany gdy importowany jako moduł")
+    # Część trzecia kropka trzy:
+    funkcja_czwarta()
+
+"
+Jak widać dodaliśmy wywołanie funkcji zdefiniowanej bezpośrednio w pliku modułu funkcja_czwarta().
+Powyższe spowoduje, że interpreter w pliku głównym najpierw przypisze do zmiennej __name__ wartość __main__. Następnie na jego drodze występuje importowanie pliku modułu.
+A więc interpreter otworzy ten plik i znowu na samym początku tego pliku w jego wewnętrznej zmiennej __name__ przypisze nazwę modułu jako wartość.
+Następnie interpreter będąc w pliku modułu będzie przechodzić przez ten plik. I najpierw wykona polecenie print(...).
+Następnie dokona definicji dwóch funkcji oraz ich importu do pliku głównego ale ich nie wykona z oczywistych względów (bo nie zostały wołane).
+A następnie zostanie wykonany kod z wyrażenia warunkowego, ale tylko z sekcji else, ponieważ to plik modułu a więc zmienna __name__ NIE zawiera wartości __main__.
+Czyli zostanie wykonane polecenie print(...) z sekcji else oraz zostanie wywołana funkcja funkcja_czwarta() bo została wywołana. Jest to funkcja zdefiniowana w pliku modułu.
+To pokazuje, że kod z pliku modułu jest wykonywany nie tylko pod względem importu jego obiektów do pliku głównego, ale też są wykonywane normalne polecenia jeżeli się w nim znajdują.
+Oczywiście będą wykonywane tylko te polecenie które zostały zdefiniowane w pliku modułu. Interpreter będąc w pliku modułu nie może sięgnąć do pliku głównego. Nawet z racje tego, że przez niego jeszcze nie przeszedł.
+Po tym interpreter dotrze do końca tego pliku modułu i wróci do głównego pliku będąc w miejscu lini kodu gdzie był import pliku modułu.
+A więc teraz interpreter będzie przechodził przez kod pliku głównego.
+Najpierw zostanie wykonane polecenie print(...). Następnie zostaną zdefiniowane dwie funkcje. Ale póki co nie zostaną wykonane bo w tym miejscu jest ich definicja, nie wywołanie.
+Następnie interpreter dotrze do wyrażenia warunkowego i wykona z niego polecenia z sekcji if, ponieważ jest to główny plik a zatem zmienna __name__ będzie mieć wartość __main__.
+W sekcji tej najpierw zostanie wykonane polecenie print(...).
+A następnie po kolei najpierw funkcja zdefiniowana w pliku głównym funkcja_pierwsza().
+W drugiej kolejności funkcja zdefiniowana w pliku modułu wywołana poprzez wywołanie nazwy modułu z notacją kropkową nazwy funkcji z pliku modułu Part7_two_my.funkcja_trzecia().
+Po tych działaniach interpreter dotrze do końca pliku głównego i zakończy działanie pliku głównego.
+
+UWAGA !!!
+Import jak i wywołanie obiektów odbywać się może według trzech sposobów przedstawionych w rozdziale Part6.
+
+/////////////////
+/////////////////
+Podsumowanie
+
+Wykorzystanie zmiennej __name__ w konstrukcji if __name__ == "__main__" daje możliwość wykonywania bądź zabezpieczenia przed wykonaniem części kodu podczas importowania modułów.
+Niezależenie czy zastosujemy tą konstrukcję w pliku głównym czy w pliku modułu.
+W obu przypadkach możemy tak zorganizować kod aby umożliwić wykonanie części kody tylko jeżeli plik jest importowany, bądź tylko jeżeli plik jest plikiem głównym.
+
+Należy też pamiętać o tym, że podczas importowania modułu do pliku głównego kod z pliku modułu może być również wykonywany. Nie tylko importowane są z niego obiekty do pliku głównego.
+Oczywiście pod warunkiem, że w pliku modułu jest kod możliwy do wykonania, a nie tylko do odczytania i zaimportowania.

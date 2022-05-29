@@ -43,7 +43,7 @@ print(x1) # wyświetlenie jeszcze raz zmiennej globalnej x1, jak widać jej wart
 # TEORIA - BARDZO WAŻNE !!!
 # Zmienna zdeklarowana wewnątrz funkcji nie jest w żaden sposób powiązana z innymi zmiennymi o tych samych nazwach
 # zdeklarowanych i używanych poza tą funkcją. Nazwy zmiennych są lokalne dla funkcji. Nazywa się to właśnie zasięgiem zmiennej.
-# Wszystkie zmienne mają zakres w bloku rozpoczynając od miejsca w którym są zdefiniowane ich nazwy.
+# Wszystkie zmienne mają zakres w bloku rozpoczynając od miejsca w którym są zdefiniowane ich nazwy aż do zakończenia tego bloku.
 
 # Pojęcie zakresu można opisać za pomocą trzech ogólnych zasad:
 
@@ -56,6 +56,9 @@ print(x1) # wyświetlenie jeszcze raz zmiennej globalnej x1, jak widać jej wart
 # 	 - funkcji zagnieżdzonych, funkcji wewnątrz funkcji,
 # 	 - globalnego,
 # 	 - wbudowanego w różnych modułach, bibliotekach importowanych przez nas w kodzie.
+# W momencie jeżeli na poziomie (w bloku) w którym wywoływana jest nazwa (zmniennej) nie jest ona znajdywana to wówczas
+# Python przechodzi o poziom (blok) wyżej w poszukiwaniu nazwy (zmiennej). Tak długi idzie w górę, aż znajdzie nazwę (zmiennej).
+# Jeżeli nie znajdzie to zwracany jest błąd braku zdefiniowania zmiennej.
 
 # 3. Nazwy (zmiennych) zdeklarowane globalnie, nielokalnych, mapują (przyporządkowują)
 # 	 przypisane im wartości na otaczające moduły i funkcje jeżeli w nich wystepują.
